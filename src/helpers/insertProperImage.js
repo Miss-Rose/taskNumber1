@@ -3,11 +3,18 @@ import thought from "../assets/thought.png";
 import idea from "../assets/idea.png";
 import quote from "../assets/quote.png";
 
-export const insertProperImage = (category, td) => {
-      switch (category) {
-      case 'Task' : td.innerHTML = `<img src=${task} alt="task" style="width: 30px; height: 30px;">`; break;
-      case 'Random Thought' : td.innerHTML = `<img src=${thought} alt="thought" style="width: 30px; height: 30px;">`; break;
-      case 'Idea' : td.innerHTML = `<img src=${idea} alt="idea" style="width: 30px; height: 30px;">`; break;
-      case 'Quite' : td.innerHTML = `<img src=${quote} alt="quote" style="width: 30px; height: 30px;">`; break;
+import archivePng from '../assets/archive.png';
+import removePng from '../assets/delete.png';
+import editPng from '../assets/edit.png';
+
+export const insertProperImage = (filter, elem) => {
+      switch (filter) {
+      case 'Task' : elem.innerHTML = `<img src=${task} alt="task">`; break;
+      case 'Random Thought' : elem.innerHTML = `<img src=${thought} alt="thought">`; break;
+      case 'Idea' : elem.innerHTML = `<img src=${idea} alt="idea">`; break;
+      case 'Quite' : elem.innerHTML = `<img src=${quote} alt="quote">`; break;
+      case 'edit' : elem.innerHTML = `<img src=${editPng} alt=${filter}>`; break;
+      case 'delete' : elem.innerHTML = `<img src=${removePng} alt=${filter}>`; break;
+      case 'archive' : elem.innerHTML = `<img src=${archivePng} alt=${filter}>`; break;
     }
 }

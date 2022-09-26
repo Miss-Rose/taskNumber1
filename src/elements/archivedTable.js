@@ -1,9 +1,13 @@
 import {createArchivedNotes} from "../dataStore/archivedNotes";
 import {insertProperImage} from "../helpers/insertProperImage";
 
-export const createArchivedTable = () => {
-  const archivedTable = document.createElement('table');
+export const createArchivedTable = (currentData) => {
 
+  console.log('createActiveTable', currentData);
+
+
+  const archivedTable = document.createElement('table');
+  archivedTable.classList.add("archivedTable");
   archivedTable.innerHTML = ` 
    <thead>
      <tr>
@@ -16,7 +20,7 @@ export const createArchivedTable = () => {
 
   const body = archivedTable.createTBody();
 
-  const archivedData = createArchivedNotes();
+  const archivedData = createArchivedNotes(currentData);
 
   try {
     archivedData.forEach((row) => {
@@ -38,8 +42,3 @@ export const createArchivedTable = () => {
 
   return archivedTable;
 }
-
-
-// const s = mockData.reduce((acc, current) => {
-//     return {...acc, [current.category]: {active: 0, archived: 0}};
-// }, {});

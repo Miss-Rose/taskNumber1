@@ -42,7 +42,16 @@ module.exports = {
           },
         },
       },
-      { test: /\.css$/i, use: [ 'style-loader', 'css-loader' ] },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1, modules: true },
+          },
+        ],
+      },
       { test: /\.html$/i, loader: "html-loader" },
       {
         test: /\.(png|svg|jpg|jpeg|gif|jfif)$/,

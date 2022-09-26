@@ -1,16 +1,15 @@
-import {Categories, mockData} from "./noteList";
+import {Categories} from "./noteList";
 import {getActiveNotesByCategory, getArchivedNotesByCategory} from "../helpers/getCountByCategories";
 
-const archivedNotes = [];
-
-export const createArchivedNotes = () => {
+export const createArchivedNotes = (currentData) => {
+  let archivedNotes = [];
 
   Object.keys(Categories).forEach((items) => {
     archivedNotes.push({
       id: Math.random(),
       category: Categories[items],
-      active: getActiveNotesByCategory(Categories[items], mockData),
-      archived: getArchivedNotesByCategory(Categories[items], mockData),
+      active: getActiveNotesByCategory(Categories[items], currentData),
+      archived: getArchivedNotesByCategory(Categories[items], currentData),
     });
   });
 
