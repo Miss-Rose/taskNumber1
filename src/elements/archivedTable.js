@@ -2,10 +2,6 @@ import {createArchivedNotes} from "../dataStore/archivedNotes";
 import {insertProperImage} from "../helpers/insertProperImage";
 
 export const createArchivedTable = (currentData) => {
-
-  console.log('createActiveTable', currentData);
-
-
   const archivedTable = document.createElement('table');
   archivedTable.classList.add("archivedTable");
   archivedTable.innerHTML = ` 

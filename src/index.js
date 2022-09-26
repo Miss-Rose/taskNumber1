@@ -1,11 +1,11 @@
 import {createActiveTable} from "./elements/notesTable";
 import {createArchivedTable} from "./elements/archivedTable";
-import styles from './styles.css';
+import './styles.css';
 import {mockData} from "./dataStore/noteList";
 
 function onPageLoaded() {
   const root = document.getElementById('root');
-  root.className = styles["general_container"];
+  root.className = "general_container";
 
   //TABLE 1
   const container = document.createElement('div');

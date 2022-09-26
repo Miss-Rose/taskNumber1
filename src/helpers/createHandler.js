@@ -1,19 +1,23 @@
 import {mockData, updateState} from "../dataStore/noteList";
-import {createActiveTable} from "../elements/notesTable";
+import {openModal} from "../elements/modalWindow";
 
 export const editItem = (id) => {
-  console.log('editItem', id);
+  const root = document.getElementById('root');
+  root.appendChild(openModal());
 }
 
 export const deleteItem = (id) => {
   const newArr = mockData.filter(listEl => listEl.id !== id);
   updateState(newArr);
-  createActiveTable(newArr);
-
 }
 
 export const archiveItem = (id) => {
-  console.log('archiveItem', id);
+  const newArr = mockData.map(listEl => {
+    if (listEl.id === id) {
+      return { ...listEl, active : !listEl.active };
+    } else return listEl;
+  });
+  updateState(newArr);
 }
 
 
