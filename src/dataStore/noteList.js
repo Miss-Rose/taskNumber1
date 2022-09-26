@@ -1,3 +1,6 @@
+import {createActiveTable} from "../elements/notesTable";
+import {createArchivedTable} from "../elements/archivedTable";
+
 export const Categories = {
   task: 'Task',
   thought: 'Random Thought',
@@ -5,9 +8,9 @@ export const Categories = {
   quote: 'Quite'
 };
 
-export const mockData = [
+export let mockData = [
   {
-    id: '1',
+    id: '1bjkj',
     name: 'Shopping list',
     created: 'April 20, 2021',
     category: Categories.task,
@@ -16,7 +19,7 @@ export const mockData = [
     active: true
   },
   {
-    id: '2',
+    id: '2fgfh',
     name: 'The theory of evolution',
     created: 'April 27, 2021',
     category: Categories.thought,
@@ -25,7 +28,7 @@ export const mockData = [
     active: true
   },
   {
-    id: '3',
+    id: '3fhdty',
     name: 'New Feature',
     created: 'May 05, 2021',
     category: Categories.idea,
@@ -34,7 +37,7 @@ export const mockData = [
     active: true
   },
   {
-    id: '4',
+    id: '4qwsfc',
     name: 'William Gaddis',
     created: 'May 07, 2021',
     category: Categories.quote,
@@ -43,7 +46,7 @@ export const mockData = [
     active: true
   },
   {
-    id: '5',
+    id: '5pmng',
     name: 'Books',
     created: 'May 15, 2021',
     category: Categories.task,
@@ -52,7 +55,7 @@ export const mockData = [
     active: true
   },
   {
-    id: '6',
+    id: '6nvjgb',
     name: 'Walk',
     created: 'Sep 12, 2021',
     category: Categories.task,
@@ -61,7 +64,7 @@ export const mockData = [
     active: false
   },
   {
-    id: '7',
+    id: '7dpgbn',
     name: 'New Idea',
     created: 'Jun 25, 2021',
     category: Categories.idea,
@@ -70,3 +73,19 @@ export const mockData = [
     active: false
   }
 ];
+
+export const updateState = (newState) => {
+  mockData = [...newState];
+
+  const oldTable1 = document.querySelector('.notesTable');
+  const newTable1 = createActiveTable(mockData);
+  const containerT1 = document.querySelector('.note_container');
+  containerT1.replaceChild(newTable1, oldTable1);
+
+
+  const oldTable2 = document.querySelector('.archivedTable');
+  const newTable2 = createArchivedTable(mockData);
+  const containerT2 = document.querySelector('.category_container');
+  containerT2.replaceChild(newTable2, oldTable2);
+}
+

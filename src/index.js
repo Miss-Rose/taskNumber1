@@ -1,19 +1,28 @@
 import {createActiveTable} from "./elements/notesTable";
 import {createArchivedTable} from "./elements/archivedTable";
+import './styles.css';
+import {mockData} from "./dataStore/noteList";
 
-const root = document.getElementById('root');
+function onPageLoaded() {
+  const root = document.getElementById('root');
+  root.className = "general_container";
 
-const container = document.createElement('div');
-container.className = 'note_container';
-root.appendChild(container);
+  //TABLE 1
+  const container = document.createElement('div');
+  container.classList.add("note_container");
+  root.appendChild(container);
 
-const NotesTable = createActiveTable();
-container.appendChild(NotesTable);
+  const NotesTable = createActiveTable(mockData);
+  container.appendChild(NotesTable);
 
 
-const categoryContainer = document.createElement('div');
-categoryContainer.className = 'category_container';
-root.appendChild(categoryContainer);
+  // TABLE 2
+  const categoryContainer = document.createElement('div');
+  categoryContainer.classList.add("category_container");
+  root.appendChild(categoryContainer);
 
-const CategoryTable = createArchivedTable();
-categoryContainer.appendChild(CategoryTable);
+  const CategoryTable = createArchivedTable(mockData);
+  categoryContainer.appendChild(CategoryTable);
+}
+
+document.addEventListener("DOMContentLoaded", onPageLoaded);

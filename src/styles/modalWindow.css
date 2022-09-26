@@ -1,0 +1,43 @@
+.modalContainer {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContainer_open {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.modalContainer_close {
+    display: none;
+}
+
+.modalContainer_open button {
+    width: 50px;
+    align-items: flex-end;
+    height: 50px;
+    position: relative;
+    left: -50px;
+}
+
+.modalContainer_open > form {
+    height: 500px;
+    top: 30%;
+    width: 500px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: white;
+}
+
+.modalContainer_open form div {
+    margin: 24px 0;
+}

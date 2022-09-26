@@ -1,0 +1,39 @@
+.general_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.note_container {}
+.category_container {}
+
+table {
+    border: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+th {
+    padding: 8px;
+}
+
+td {
+    background: #e2e2e5;
+    border-top: 4px solid white;
+}
+
+
+thead {
+    background-color: gray;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+button {
+    cursor: pointer;
+}

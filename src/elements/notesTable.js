@@ -1,13 +1,12 @@
-import task from "../assets/task.png";
-import thought from "../assets/thought.png";
-import idea from "../assets/idea.png";
-import quote from "../assets/quote.png";
-import {mockData} from "../dataStore/noteList";
 import {insertProperImage} from "../helpers/insertProperImage";
+import removePng from '../assets/delete.png';
+import archivePng from '../assets/archive.png';
+import {createHandler} from "../helpers/createHandler";
 
-export const createActiveTable = () => {
+export const createActiveTable = (currentData) => {
+
   const notesTable = document.createElement('table');
-
+  notesTable.classList.add("notesTable");
   notesTable.innerHTML = ` 
  <thead>
    <tr>
@@ -18,8 +17,8 @@ export const createActiveTable = () => {
     <th>Content</th>
     <th>Dates</th>
     <th>
-      <a>Archive</a>
-      <a>Delete</a>
+      <button><img src=${archivePng} alt="archive"></button>
+      <button><img src=${removePng} alt="delete"></button>
     </th>
   </tr>
 </thead>`;
@@ -28,7 +27,7 @@ export const createActiveTable = () => {
   notesTable.appendChild(listBody);
 
   try {
-    mockData.forEach((row) => {
+    currentData.forEach((row) => {
       if (row.active === true) {
         let tr = listBody.appendChild(document.createElement('tr'));
 
@@ -38,7 +37,17 @@ export const createActiveTable = () => {
 
             column === 'id' ? insertProperImage(row.category, td) : td.innerText = row[column];
           }
-        })
+        });
+        let td = tr.insertCell();
+
+        const actions = ['edit', 'delete', 'archive'];
+        actions.forEach(action => {
+          let btn = document.createElement('button');
+          insertProperImage(action, btn);
+          createHandler(btn, action, row.id);
+          td.appendChild(btn);
+        });
+
       }
     });
   } catch (err) {
