@@ -2,6 +2,7 @@ import {insertProperImage} from "../helpers/insertProperImage";
 import removePng from '../assets/delete.png';
 import archivePng from '../assets/archive.png';
 import {createHandler} from "../helpers/createHandler";
+import '../styles/notesTable.css';
 
 export const createActiveTable = (currentData) => {
 
@@ -17,8 +18,8 @@ export const createActiveTable = (currentData) => {
     <th>Content</th>
     <th>Dates</th>
     <th>
-      <button><img src=${archivePng} alt="archive"></button>
-      <button><img src=${removePng} alt="delete"></button>
+      <button id="archiveAllBtn"><img src=${archivePng} alt="archive"></button>
+      <button id="deleteAllBtn"><img src=${removePng} alt="delete"></button>
     </th>
   </tr>
 </thead>`;

@@ -11,11 +11,25 @@ export const deleteItem = (id) => {
   updateState(newArr);
 }
 
+export const removeAllItem = () => {
+  const newArr = mockData.filter(listEl => listEl.active !== true);
+  updateState(newArr);
+}
+
 export const archiveItem = (id) => {
   const newArr = mockData.map(listEl => {
     if (listEl.id === id) {
       return { ...listEl, active : !listEl.active };
     } else return listEl;
+  });
+  updateState(newArr);
+}
+
+export const archiveAllItem = () => {
+  const newArr = mockData.map(listEl => {
+    if (listEl.active === true) {
+      return {...listEl, active : !listEl.active};
+    }else return listEl;
   });
   updateState(newArr);
 }

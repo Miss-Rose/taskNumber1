@@ -2,6 +2,7 @@ import {createActiveTable} from "./elements/notesTable";
 import {createArchivedTable} from "./elements/archivedTable";
 import './styles.css';
 import {mockData} from "./dataStore/noteList";
+import {removeAllItem, archiveAllItem} from "./helpers/createHandler";
 
 function onPageLoaded() {
   const root = document.getElementById('root');
@@ -23,6 +24,13 @@ function onPageLoaded() {
 
   const CategoryTable = createArchivedTable(mockData);
   categoryContainer.appendChild(CategoryTable);
+
+
+  // button listeners
+  const deleteAllBtn = document.querySelector('#deleteAllBtn');
+  deleteAllBtn.addEventListener('click', () => removeAllItem());
+  const archiveAllBtn = document.querySelector('#archiveAllBtn');
+  archiveAllBtn.addEventListener('click', () => archiveAllItem())
 }
 
 document.addEventListener("DOMContentLoaded", onPageLoaded);
