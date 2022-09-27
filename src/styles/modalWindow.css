@@ -1,4 +1,7 @@
 .modalContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
     position: fixed;
     z-index: 10;
     top: 0;
@@ -10,17 +13,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modalContainer_open {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-}
-
-.modalContainer_close {
-    display: none;
-}
-
-.modalContainer_open button {
+.modalContainer .closeBtn {
     width: 50px;
     align-items: flex-end;
     height: 50px;
@@ -28,7 +21,7 @@
     left: -50px;
 }
 
-.modalContainer_open > form {
+.modalContainer > form {
     height: 500px;
     top: 30%;
     width: 500px;
@@ -38,6 +31,6 @@
     background-color: white;
 }
 
-.modalContainer_open form div {
+.modalContainer form div {
     margin: 24px 0;
 }

@@ -1,5 +1,6 @@
 import {createActiveTable} from "../elements/notesTable";
 import {createArchivedTable} from "../elements/archivedTable";
+import {addButtonsListeners} from "../helpers/eventListeners";
 
 export const Categories = {
   task: 'Task',
@@ -87,5 +88,6 @@ export const updateState = (newState) => {
   const newTable2 = createArchivedTable(mockData);
   const containerT2 = document.querySelector('.category_container');
   containerT2.replaceChild(newTable2, oldTable2);
+  addButtonsListeners();
 }
 

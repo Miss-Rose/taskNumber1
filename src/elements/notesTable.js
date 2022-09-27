@@ -1,7 +1,7 @@
 import {insertProperImage} from "../helpers/insertProperImage";
 import removePng from '../assets/delete.png';
 import archivePng from '../assets/archive.png';
-import {createHandler} from "../helpers/createHandler";
+import {createHandler} from "../helpers/eventListeners";
 import '../styles/notesTable.css';
 
 export const createActiveTable = (currentData) => {

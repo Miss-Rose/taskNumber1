@@ -4,17 +4,11 @@ export const openModal = () => {
   const modalWindow = document.createElement('div');
   modalWindow.setAttribute('id','modalWindow');
   modalWindow.classList.add("modalContainer");
-  modalWindow.classList.add("modalContainer_open");
 
   const closeBtn = document.createElement('button');
   closeBtn.innerHTML = 'X';
   closeBtn.className = 'closeBtn';
   modalWindow.appendChild(closeBtn);
-
-  closeBtn.addEventListener('click', () => {
-    modalWindow.classList.remove("modalContainer_open");
-    modalWindow.classList.add("modalContainer_close");
-  })
 
   const form = document.createElement('form');
   form.innerHTML = `
@@ -47,6 +41,10 @@ export const openModal = () => {
             <div>
               <label for="dates">Dates:</label>
               <input id="dates" type="text" name="dates">
+            </div>
+            
+            <div>
+                <button>Save</button>
             </div>
         </form>
   `;
